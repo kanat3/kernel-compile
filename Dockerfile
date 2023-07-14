@@ -1,6 +1,6 @@
 FROM debian:bookwarm
 
-# default value
+# default value for env
 ENV SOURCE_DIR=source
 
 COPY ${SOURCE_DIR} /usr/src/kernel-source
