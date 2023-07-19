@@ -1,13 +1,23 @@
-FROM debian:bookwarm
+FROM debian:bookworm
 
-# default value for env
-ENV SOURCE_DIR=source
+ENV LINUX_KERNEL_SOURCES source
 
-COPY ${SOURCE_DIR} /usr/src/kernel-source
+COPY ${LINUX_KERNEL_SOURCES} /usr/src/kernel-source
 
 WORKDIR /usr/src/kernel-source
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+
+RUN apt-get update -y
+RUN apt-get install -y --no-install-recommends\
+    build-essential \
+    libncurses-dev \
+    bison flex \
+    libssl-dev \
+    libelf-dev \
+    bc \
+    kmod
+
 
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
