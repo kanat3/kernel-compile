@@ -26,4 +26,4 @@ cd $build_dir/linux*
 
 make menuconfig
 
-make -j$(nproc) isoimage
+make -j$(nproc)

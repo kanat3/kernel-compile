@@ -18,8 +18,7 @@ RUN apt-get install -y --no-install-recommends\
     libssl-dev \
     libelf-dev \
     bc \
-    kmod \
-    syslinux
+    kmod
 
 
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
