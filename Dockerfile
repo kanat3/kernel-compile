@@ -1,6 +1,8 @@
 FROM debian:bookworm
 
-ENV LINUX_KERNEL_SOURCES source
+
+ARG LINUX_KERNEL_SOURCES=local
+ENV LINUX_KERNEL_SOURCES=${LINUX_KERNEL_SOURCES}
 
 COPY ${LINUX_KERNEL_SOURCES} /usr/src/kernel-source
 
@@ -16,7 +18,8 @@ RUN apt-get install -y --no-install-recommends\
     libssl-dev \
     libelf-dev \
     bc \
-    kmod
+    kmod \
+    syslinux
 
 
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
