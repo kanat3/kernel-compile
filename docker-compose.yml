@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+  linux-build-mcst:
+    container_name: linux-build-mcst
+    build:
+      context: ./linux-build-mcst
+      dockerfile: Dockerfile
+      no_cache: true
+      args:
+          TZ: ${TZ}
+          LINUX_KERNEL_SOURCES: ${LINUX_KERNEL_SOURCES}
+    image: linux-build-mcst:latest

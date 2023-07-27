@@ -9,9 +9,11 @@
 # But not these files...
 !/.gitignore
 
-!*.yaml
-!linux-build-mcst/*.sh
-!linux-build-mcst/Dockerfile
+!*.yml
+!*.sh
+!/linux-build-mcst
+!/linux-build-mcst/*.sh
+!/linux-build-mcst/Dockerfile
 !.env
 
 !README.md
