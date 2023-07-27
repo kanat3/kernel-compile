@@ -5,7 +5,7 @@
 #
 ###### TZ -- timezone
 #
-###### The root of the directory is the folder containing the .sh file
+###### The root of the directory is the folder containing the Docker file
 #
 ##### Usage docker-compose.yml:
 ###### 1. Download *.gz file from https://www.kernel.org/ in directory near your Dockerfile.
