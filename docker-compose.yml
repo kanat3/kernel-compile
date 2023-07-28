@@ -11,3 +11,5 @@ services:
           TZ: ${TZ}
           LINUX_KERNEL_SOURCES: ${LINUX_KERNEL_SOURCES}
     image: linux-build-mcst:latest
+    stdin_open: true
+    tty: true
