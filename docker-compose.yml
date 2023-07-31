@@ -10,6 +10,7 @@ services:
       args:
           TZ: ${TZ}
           LINUX_KERNEL_SOURCES: ${LINUX_KERNEL_SOURCES}
+          IS_MENUCONFIG: ${IS_MENUCONFIG}
     image: linux-build-mcst:latest
     stdin_open: true
     tty: true

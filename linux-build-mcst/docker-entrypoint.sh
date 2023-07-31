@@ -24,6 +24,9 @@ fi
 
 cd $build_dir/linux*
 
-make menuconfig
+if $IS_MENUCONFIG; then
+  make menuconfig; else 
+  make defconfig;
+fi
 
 make -j$(nproc)
