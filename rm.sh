@@ -1,7 +1,7 @@
 #!/bin/bash
 
 container_id=$(docker ps -aqf "name=linux-build-mcst")
-image_i=$(docker images | grep "linux-build-mcst")
+image_id=$(docker images | grep "linux-build-mcst")
 
 if [[ -z "$container_id" ]]; then
     echo "No such container id"
