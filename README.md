@@ -1,4 +1,7 @@
 # kernel cross-compilation
+
+Compiled kernel files can be found here: ...kernel_build/build-docker
+
 ### Arguments:
 
 LINUX_KERNEL_SOURCES - the path for archive with linux kernel sources
