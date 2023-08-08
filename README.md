@@ -1,4 +1,4 @@
-# kernel cross-compilation
+# kernel compilation
 
 Compiled kernel files can be found here: *...kernel_build/build-docker*
 
