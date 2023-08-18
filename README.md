@@ -6,11 +6,13 @@ Compiled kernel files can be found here: *...kernel_build/build-docker*
 
 LINUX_KERNEL_SOURCES - the path for archive with linux kernel sources
 
+ABSOLUTE_SOURCE_PATH - the absolute path for archive with linux kernel sources (need for using tmpfs mount)
+
 TZ - timezone
 
 IS_MENUCONFIG - variable to select the configuration method. In the case true, you use make menuconfig  and need to connect to the container (steps 4-5) and set the parameters manually. If the case false, compilation will happen automatically (the last step - 3)
 
-The root of the directory is the folder containing the Docker file
+The root of the directory is the folder containing the Dockerfile
 
 ### Usage docker-compose.yml:
 
@@ -64,3 +66,20 @@ docker run --name kernel_build -it kernel_build_img /bin/bash
 ```
 cat output.log
 ```
+
+### Improvement
+
+If you have a good hardware, then you can use it to speed up the build of the kernel in the container. To do this, mount a volume of the tmpfs type in the docker-compose file as in the example.
+```
+volumes:
+    - type: tmpfs
+    target: ${ABSOLUTE_SOURCE_PATH}:/usr/src/kernel-source
+    tmpfs:
+        size: 8192
+        mode: 755
+```
+Set the desired size (tmpfs-size) and access rights (tmpfs-mode). And also specify the source folder to copy them directly to RAM like this:
+```
+target: absolute_path_for_sorces:path_in_the_container
+```
+Don't forget to return the used memory to the heap by deleting the executed container.

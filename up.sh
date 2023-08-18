@@ -28,4 +28,6 @@ echo "Waiting for data..."
 
 docker wait $container_id
 
-docker cp -a $container_id:/usr/src/kernel-source/build-docker $(pwd)/build-docker
+dir=/usr/src/kernel-source
+
+docker cp -a $container_id:$dir/build-docker/kernel-build $(pwd)/build-docker

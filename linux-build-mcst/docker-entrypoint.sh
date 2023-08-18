@@ -1,8 +1,10 @@
 #!/bin/bash
 
-extract_dir=/usr/src/kernel-source
+dir=/usr/src/kernel-source
 
-build_dir=/usr/src/kernel-source/build-docker
+extract_dir=$dir/build-docker
+
+build_dir=$dir/build-docker/kernel-build
 
 if [[ ! -d "$build_dir" ]]; then
   mkdir "$build_dir"
@@ -24,9 +26,15 @@ fi
 
 cd $build_dir/linux*
 
+START=$(date +%s)
+
 if $IS_MENUCONFIG; then
   make menuconfig; else 
   make defconfig;
 fi
 
 make -j$(nproc)
+
+END=$(date +%s)
+DIFF=$(( $END - $START ))
+echo "Kernel compilation end in $DIFF s"

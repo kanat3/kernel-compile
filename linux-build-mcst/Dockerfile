@@ -7,9 +7,9 @@ ENV LINUX_KERNEL_SOURCES=${LINUX_KERNEL_SOURCES}
 ARG IS_MENUCONFIG=true
 ENV IS_MENUCONFIG=${IS_MENUCONFIG}
 
-COPY ${LINUX_KERNEL_SOURCES} /usr/src/kernel-source
+COPY ${LINUX_KERNEL_SOURCES} /usr/src/kernel-source/build-docker
 
-WORKDIR /usr/src/kernel-source
+WORKDIR /usr/src/kernel-source/build-docker
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
@@ -22,7 +22,6 @@ RUN apt-get install -y --no-install-recommends\
     libelf-dev \
     bc \
     kmod
-
 
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 

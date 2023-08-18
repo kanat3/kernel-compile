@@ -11,6 +11,7 @@ services:
           TZ: ${TZ}
           LINUX_KERNEL_SOURCES: ${LINUX_KERNEL_SOURCES}
           IS_MENUCONFIG: ${IS_MENUCONFIG}
+          ABSOLUTE_SOURCE_PATH: ${ABSOLUTE_SOURCE_PATH}
     image: linux-build-mcst:latest
     stdin_open: true
     tty: true
