@@ -80,7 +80,7 @@ volumes:
 ```
 Set the desired size (tmpfs-size) and access rights (tmpfs-mode). And also specify the source folder to copy them directly to RAM like this:
 ```
-target: absolute_path_for_sorces:path_in_the_container
+target: absolute_path_for_sources:path_in_the_container
 ```
 Don't forget to return the used memory to the heap by deleting the executed container.
 
